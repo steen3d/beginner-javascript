@@ -75,3 +75,42 @@ const chris = {
 }
 
 Callback function
+button.addEventListener('click', myFunction); // When someone clicks something, run this
+button.addEventListener('click', function(){
+  console.log('nice');
+}); 
+
+Timer Callback - 
+setTimeout(myFunction, 1000); Or when when this amount of time has passed, run this
+setTimeout(function(){
+  console.log('done!');
+}, 1000);
+
+setTimeout(() => {
+  console.log('done!');
+}, 1000);
+
+
+## Debugging Tools
+
+//console methods
+console.log
+.info
+.error - Styles logged console stuff like an error
+.warn
+.table - Will log errors in a table format if object is formatted correctly
+.count - Shows how many time it runs in the console - based on the string you pass it.
+.group - Can group multiple log messages into collapsing section - 
+  Starts with console.groupCollapsed('My Group Name');,
+  Ends with console.groupEnd('My Group Name');
+
+Callstack shows each line where error occurred
+
+Select element in elements tab, then type $0 - returns selected element - $0 is last element clicked, $1 second last, etc
+
+$ will do querySelector in console. $$ does querySelectorAll. Doesn't work if jquery is loaded
+
+debugger; in script will pause execution if console is open
+you can also click the line in the console
+Network tab, file name will show data about requests
+You can break on xhr
