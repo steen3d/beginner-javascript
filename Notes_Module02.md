@@ -17,11 +17,11 @@ console.log(`Your total is $${calculateBill()}`); // Function can be called in s
 
 ## Parameters and Arguments
 
-When a function attempts to access data no provided in function it reaches outside a higher scope
+When a function attempts to access data not provided in that function it reaches outside to a higher scope
 
 Parameters are placeholders for data when declaring a function
 Arguments are actual values that you pass the function to replace the parameters
-myFunc1(myFun2(param)) // You can pass a function as a param in another function. Inside parenthesis happens first.
+myFunc1(myFunc2(param)) // You can pass a function as a param in another function. Inside parenthesis happens first.
 myFunc(name = "Chris"); // You can supply a default in case it is called without Arg. 
 myFunc(name = ""); // You can set to empty string to keep it from erroring
 mayFunc(name, undefined, age); // Pass undefined to get default
@@ -30,7 +30,7 @@ mayFunc(name, undefined, age); // Pass undefined to get default
 
 In JS functions are "First Class Citizens" - they can be used like any other value
 
-function keywork - the standard way
+function keyword - the standard way
 anonymous function - has no name
 Function expression - store function as value in a var
   const myFunc = function(arg){
@@ -46,7 +46,8 @@ function add( a, b = 3) {
   return total;
 }
 
-const add = ( a, b = 3 ) => a + b; // Has implicit return
+const add = ( a, b = 3 ) => a + b; // Has implicit return - all on one line, no return keyword, no curly braces
+can also remove parenthesis if just one paramater // const myName = name => `My name is ${name}`;
 const add = ( a, b = 3 ) => ({ arg1: val1, arg2: val2}); // If implicitly returning an object wrap in ()
 
 IIFE = Immediately Invoked Function Expression // Runs right away.
@@ -71,10 +72,10 @@ const chris = {
   // Arrow method
   sayHi: () => {
     console.log('Hi Chris');
-  }
+  } // "this" refers to the parent in arrow method
 }
 
-Callback function
+Callback function - something that happens when something is done
 button.addEventListener('click', myFunction); // When someone clicks something, run this
 button.addEventListener('click', function(){
   console.log('nice');
@@ -92,6 +93,7 @@ setTimeout(() => {
 
 
 ## Debugging Tools
+// See debugging.js
 
 //console methods
 console.log

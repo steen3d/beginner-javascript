@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="base.css" />
+  </head>
+
+  <body>
+    <script>
+      // Access a variable from the scope above the stored function
+      // function outer() {
+      //   const outerVar = "Hey I am the outer Var!";
+      //   function inner() {
+      //     const innerVar = "Hey I am the inner Var!";
+      //   }
+      //   return inner;
+      // }
+
+      // const innerFn = outer(); // This returns the inner function
+      // innerFn(); // This can still reach to the parent scope
+
+      function createGreeting(greeting = "") {
+        const myGreet = greeting.toUpperCase();
+        return function(name) {
+          return `${myGreet} ${name}`;
+        };
+      }
+
+      const sayHello = createGreeting("hello");
+      const sayHi = createGreeting("hi");
+
+      console.log(sayHello("Chandler"));
+      console.log(sayHi("Chandler"));
+      console.log(sayHello("Katie"));
+
+      function createGame(gameName) {
+        let score = 0; // This is a private var. Will exist inside each version of createGame we make
+        return function win() {
+          score++;
+          return `Your name ${gameName} score is ${score}`;
+        };
+      }
+
+      const hockeyGame = createGame("Hockey");
+      const soccerGame = createGame("Soccer");
+    </script>
+  </body>
+</html>
