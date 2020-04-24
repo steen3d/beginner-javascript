@@ -22,7 +22,7 @@ querySelectorAll - node list of all elements
 
 they take css selectors
 
-can use child selectors etc - items =  document.querySelectorAll('.item img')
+can use child selectors etc - items = document.querySelectorAll('.item img')
 
 can also use on other stored elements - items.querySelector('img')
 
@@ -41,6 +41,7 @@ insertAdjacentText - method that will add text to front or back of text without 
 Elements are wrapped in a tag - nodes are everything else including elements
 
 ## Working with classes
+
 the-dom.js
 
 .classList will log all classes on an element
@@ -61,9 +62,23 @@ data-myattribute - this is a better way to make your own attribute
 ## Creating elements
 
 see creating.js
+document.createElement('h2');
+document.appendChild(myElement);
+myElement.insertAdjacentElement('afterbegin', myOtherElement);
 
 ## Html from strings and xss
 
+see creating-with-strings.js
+html is only able to be manipulated after adding to the dom. html in strings are only strings until added to the dom
 
+document.createRange().createContextualFragment(myString);
 
+xss - cross site scripting - allowing html in strings can let you insert script tags into pages
 
+## Traversing and Removing Nodes
+
+see traversing-cs.js
+
+\$0 in console is currently selected element
+
+nodes created in js and then removed from the dom with .remove() can be added back - they still exist in memory
