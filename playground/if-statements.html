@@ -1,37 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>If Statements</title>
+    <link rel="stylesheet" href="../base.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>If Statements</title>
-  <link rel="stylesheet" href="../base.css">
-</head>
+  <body>
+    * empty array * empty object * 1 * -10 * full string * a string of "0" * 0 *
+    undefined variable * Variable set to null * a variable set to `"hello" - 10`
+    NaN * empty string
 
-<body>
-  * empty array
-  * empty object
-  * 1
-  * -10
-  * full string
-  * a string of "0"
-  * 0
-  * undefined variable
-  * Variable set to null
-  * a variable set to `"hello" - 10` NaN
-  * empty string
-
-  <script>
-
-    function slugify(sentence, lowercase) {
-      let slug = sentence.replace(/\s/g, '-');
-      if (lowercase) {
-        return slug.toLowerCase();
+    <script>
+      function slugify(sentence, lowercase) {
+        const slug = sentence.replace(/\s/g, "-");
+        if (lowercase) {
+          return slug.toLowerCase();
+        }
+        return slug;
       }
-      return slug;
-    }
 
-  </script>
-</body>
+      const word = count === 1 ? "item" : "items";
 
+      const isAdmin = true;
+
+      isAdmin ? showAdminBar() : null; // Is admin is the condition - always need false case
+
+      // and and trick
+      function check1() {
+        return true;
+      }
+      function check2() {
+        return true;
+      }
+      function check3() {
+        return true;
+      }
+
+      if (check1() && check2() && check3()) {
+        console.log("all checks passed");
+      } else {
+        console.log("some checks failed");
+      }
+
+      // will check value of each condition in order until on fails, then will exit if even if others haven't been checked yet - sometimes called short circuiting
+
+      function showAdminBar() {
+        console.log("Showing admin bar");
+      }
+
+      isAdmin && showAdminBar(); // Kind of an abusing condition short circuiting, but people do it.
+
+      if (isAdmin) showAdminBar(); // You don't technically need curly brackets if it's on one line
+    </script>
+  </body>
 </html>
