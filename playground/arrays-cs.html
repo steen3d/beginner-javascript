@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>
+
+  </title>
+  <link rel="stylesheet" href="../base.css">
+</head>
+
+<body>
+  <script>
+    const names = ['chris', 'chandler', 'katie'];
+
+    names.push('loki');
+    const names2 = [...names, 'loki']; // creates a new copy with the new item added
+
+    names.unshift('leia'); // puts name at front of array
+    const names3 = ['leia', ...names];
+
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
+    numbers.splice(3, 2); // mutable - actually removes two items index 3 and 4
+
+    const numbers2 = numbers.slice(3, 5); // makes a new array out of index 3 and 4
+    console.log(numbers);
+    console.log(numbers2);
+
+    const consoles = ['nes', 'snes', 'genesis', 'n64'];
+
+    const newConsoles = [...consoles.slice(0, 2), 'gameboy', ...consoles.slice(2)]; // Add an item at specific location in the array
+    console.log(newConsoles);
+
+    const newConsoles2 = [...newConsoles.slice(0, 3), ...newConsoles.slice(4)]; // to remove an item you just
+
+    const comments = [
+      { test: 'Good stuff', id: 123 },
+      { test: 'Love it', id: 133 },
+      { test: 'Spiffy', id: 233 },
+      { test: 'Pixeltastic', id: 333 },
+      { test: 'Fabulo', id: 123 },
+    ];
+
+    function deleteComment(id, comments) {
+      // first find the index in the item array
+      const commentIndex = comments.findIndex(comment => comment.id === id);
+      // make a new array without that item in it
+      return [
+        ...comments.slice(0, commentIndex),
+        ...comments.slice(commentIndex + 1),
+      ];
+      // return our new array
+    } // Function to remove an item from an array - could use a let on original array to update if we wanted
+
+    const lokiIndex = names.findIndex(name => name === 'loki'); // loop over names, if name == 'loki' return true
+
+    const namesWithoutLoki = [
+      // get everything up to loki index
+      ...names.slice(0, lokiIndex),
+      // everything after loki index
+      ...names.slice(lokiIndex + 1),
+    ];
+
+    console.log(namesWithoutLoki);
+
+    console.log(lokiIndex);
+    console.log(names[lokiIndex]);
+
+    // slice in sections from both sides of the item to remove
+
+    // // Mutation Methods - Change the data
+    // const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    // //When you want to use a mutation method and NOT mutate the data take a copy of the array
+    // const numbersReversed = [...numbers].reverse();
+
+    // // Immutable - They don't change the data
+    // const pizzaSlice = numbers.slice(2, 4);
+  </script>
+</body>
+
+</html>

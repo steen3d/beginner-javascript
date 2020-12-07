@@ -12,14 +12,26 @@
 
 <body>
   <script>
-    const toppings = ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions', 'Cheese'];
+    const toppings = [
+      'Mushrooms ',
+      'Tomatoes',
+      'Eggs',
+      'Chili',
+      'Lettuce',
+      'Avocado',
+      'Chiles',
+      'Bacon',
+      'Pickles',
+      'Onions',
+      'Cheese',
+    ];
 
     const buns = ['egg', 'wonder', 'brioche'];
 
     const meats = {
       beyond: 10,
       beef: 5,
-      pork: 7
+      pork: 7,
     };
 
     const prices = {
@@ -39,18 +51,41 @@
       { comment: 'I DONT LIKE BURGERS', rating: 1 },
     ];
 
-
     /*
       Static Methods
     */
 
     // Array.of();
 
+    Array.of('loki', 'leia'); // creates a new array
+    Array.of(...'loki'); // spreads items from object provided into theit own indexes;
+
     // Make a function that creates a range from x to y with Array.from();
+    function createRange(start, end) {
+      const range = Array.from({ length: end - start + 1 }, function(item, index) {
+        return index + start;
+      });
+      return range;
+    }
+
+    const myRange = createRange(3, 7);
+    // creates an array with specified number of slots and fill it with the result of the callback
 
     // Check if the last array you created is really an array with Array.isArray();
+    console.log(Array.isArray(myRange)); // Using typeOf would return Object, so this is how you check for arrays
 
     // Take the meats object and make three arrays with Object.entries(), Object.keys, Object.values()
+
+    console.log(Object.entries(meats));
+    console.log(Object.keys(meats));
+    console.log(Object.values(meats));
+
+    Object.values(meats).forEach(([meat, qty]) => {
+      // Can destructure array to get key and value in one array - const [key, value] = entry
+      // or include in function definition
+      console.log(meat, qty);
+      console.log(qty);
+    });
 
     /*
       Instance Methods
@@ -58,22 +93,59 @@
 
     // Display all bun types with " or " - use join()
 
-    // We have a string "hot dogs,hamburgers,sausages,corn" - use split() to turn it into a string
+    console.log(buns.join(' or ')); // Concatenates strings into one
+    
+    // We have a string "hot dogs,hamburgers,sausages,corn" - use split() to turn it into aan array
+
+    cost foodString = "hot dogs,hamburgers,sausages,corn";
+    console.log(foodString.split(',')); // specifies comma as delimiter and makes array with each item
+
+
 
     // take the last item off toppings with pop()
+
+    toppings.pop(); // takes last item off of array - mutable
+    const lastItem = toppings.pop();
+
     // add it back with push()
+    toppings.push(lastItem);
+
+    
     // take the first item off toppings with shift()
+    const firstItem = toppings.shift();
+
     // add it back in with unshift()
+    toppings.unshift(firstItem);
+
     // Do the last four,but immutable (with spreads and new variables)
 
+    let newToppings = toppings.slice(0, toppings.length -1);
+    newtoppings = [...newToppings, toppings[toppings.length - 1]];
 
     // Make a copy of the toppings array with slice()
+    const toppingsCopy = toppings.slice(0);
+
     // Make a copy of the toppings array with a spread
+    const toppingsCopy2 = [...toppings];
+
     // take out items 3 to 5 of your new toppings array with splice()
+    toppingsCopy.splice(3,5);
+
+
     // find the index of Avocado with indexOf() / lastIndexOf()
+    const avoIndex = toppings.indexOf('Avocado');
+
     // Check if hot sauce is in the toppings with includes()
+    const isInToppings = toppings.includes('Hot Sauce');
+
     // add it if it's not
+    if(!inInToppings){
+      toppings.push('Hot Sauce');
+    }
     // flip those toppings around with reverse()
+    toppings.reverse();
+    //or for immutible
+    const toppingsReversed = [...toppings].reverse();
 
     /*
       Callback Methods
@@ -93,7 +165,6 @@
     /*
       Looping Methods (next)
     */
-
   </script>
 </body>
 

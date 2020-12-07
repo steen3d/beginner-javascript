@@ -105,4 +105,47 @@ Duplicate properties get overwritten by last added
 
 If you pass an object to a function when you change the data in that function it changes the data for the external object
 
+## Maps
 
+setting a map with myMap.myProperty will not add it to the [[Entries]]
+keys can be any type
+Key properties maintain order
+
+you can loop over all entries on a map with forOf(gives property and value) or forEach
+
+Destructuring lets you create variables of map items
+Can't put methods into maps
+
+JSON.stringify(person); - converts object to text
+JSON.parse({'some json'})
+
+JSON does not understand maps yet - you have to convert to an object first, which is tricky
+
+## Arrays
+see array-cs.html
+
+Item, Index
+Item can be any type
+Array.isArray(names); - lets you know if it's an array - array is just an object in js
+const myArray = []; array literal notation
+array.length is not zero based
+myArray[array.length - 1] - will get you the last item
+mutable: perform mutations ie. changes the original data. - array.reverse() will change the data
+immutable: create a new array with modifications - array.slice returns the result without modifying the data
+
+slice - specify range to get - will not get last item
+array.slice with no end number provided will just get the rest of the array.
+
+splice - mutable - removes a number of items. index provided + provided number to remove
+
+## Static Methods
+
+More Array Cardio the JS30 course
+
+Static method vs method on object
+
+Array(Capital A) has a lot of methods for working on arrays, but is not a part of the actual array object - these are static methods
+
+Array.from creates an array from an object with a length
+
+Instance Methods exist on every array
